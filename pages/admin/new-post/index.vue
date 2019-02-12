@@ -1,7 +1,7 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <form>
+      <form @submit.prevent="onSave">
         <AppControlInput v-model="editedPost.author">Author Name</AppControlInput>
         <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
@@ -33,12 +33,19 @@ export default {
   },
   data () {
     return {
-      editedPost: {}
+      editedPost: {
+        author: '',
+        title: '',
+        thumbnailLink: '',
+        content: ''
+      }
     }
   },
   methods: {
+    onSave () {
+    },
     onCancel () {
-      console.log('onCancel')
+      this.$router.go(-1)
     }
   }
 }
