@@ -2,11 +2,13 @@
   <section class="featured-posts">
     <PostPreview
       :id="1"
+      :is-admin="isAdmin"
       title="Post 1"
       previewText="Post 1 néeahhh"
       :thumbnail="'https://i2-prod.manchestereveningnews.co.uk/incoming/article14379834.ece/ALTERNATES/s615/050318_LRR_MEN_WomenTech.jpg'" />
     <PostPreview
       :id="2"
+      :is-admin="isAdmin"
       :title="'Post 2'"
       :previewText="'Post 2 néeahhh'"
       :thumbnail="'https://i2-prod.manchestereveningnews.co.uk/incoming/article14379834.ece/ALTERNATES/s615/050318_LRR_MEN_WomenTech.jpg'" />
@@ -17,7 +19,13 @@
 import PostPreview from '~/components/Posts/PostPreview'
 
 export default {
-  components: { PostPreview }
+  components: { PostPreview },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
